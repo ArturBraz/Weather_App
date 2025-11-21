@@ -13,8 +13,8 @@ export const buildApp = async () => {
   const app = Fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
 
   //Essencial para Fastify entender Zod
-  app.setValidatorCompiler(validatorCompiler);
-  app.setSerializerCompiler(serializerCompiler);
+  app.setValidatorCompiler(validatorCompiler);//input: Validação de entrada de dados,pré handler da rota
+  app.setSerializerCompiler(serializerCompiler);//output: garantir e formatar os dados de saída (Output/Response), pós handler da rota
 
   //Handler global de erros
   app.register(errorHandlerPlugin);
