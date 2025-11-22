@@ -15,9 +15,10 @@ datasource db {
 
 model WeatherLog {
   id        Int      @id @default(autoincrement())
-  city      String //cidade pesquisada
-  lat       Float //coordenadas
-  lon       Float //coordenadas
+  city      String 
+  country   String?
+  lat       Float 
+  lon       Float 
   response  Json
   createdAt DateTime @default(now())
 }
