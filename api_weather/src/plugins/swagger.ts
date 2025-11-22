@@ -8,9 +8,9 @@ export const swaggerPlugin = fp(async (app) => {
   await app.register(swagger, {
     openapi: {
       info: {
-        title: "API Documentation",
-        description: "Documentação da API usando Fastify + Zod + Swagger",
-        version: "1.0.0",
+        title: 'API Documentation',
+        description: 'Documentação da API usando Fastify + Zod + Swagger + Axios',
+        version: '1.0.0',
       },
       servers: [{ url: "http://localhost:3333", description: "dev" }],
     },

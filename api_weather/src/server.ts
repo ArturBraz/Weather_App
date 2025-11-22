@@ -14,10 +14,10 @@ const start = async () => {
 
     await app.listen({ port, host })
 
-    console.log(`✅ Server running at http://${host}:${port}`)
-    console.log(`📚 Swagger docs at http://${host}:${port}/docs`)
+    console.log(`Server running at http://${host}:${port}`)
+    console.log(`Swagger docs at http://${host}:${port}/docs`)
   } catch (err) {
-    console.error('❌ Falha ao iniciar o servidor:', err)
+    console.error('Server startup failed:', err)
     process.exit(1)
   }
 }
