@@ -6,6 +6,6 @@ export const axiosWeather = axios.create({
 });
 
 export const axiosApi = axios.create({
-  baseURL: process.env.API_BASE_URL || "http://localhost:4000",
+  baseURL: `http://localhost:${process.env.PORT || 3333}/`,
   timeout: 5000,
 });

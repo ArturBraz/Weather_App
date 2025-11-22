@@ -7,7 +7,7 @@ Este repositório contém:
 
 # Objetivo
 
-- Extração de dados via API(OpenWeather),Utilize parâmetros dinâmicos na URL e faça a autenticação usando uma chave de API.[weather-api](https://www.meteomatics.com/en/weather-api/)
+- Extração de dados via API(OpenWeather),Utilize parâmetros dinâmicos na URL e faça a autenticação usando uma chave de API.[openweathermap](https://home.openweathermap.org/)
 - armazenamento em banco de dados, 
 - Git para versionamento do código.
 - Armazenar no banco PostgreSQL, uma tabela é o suficiente.
