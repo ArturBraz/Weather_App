@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosWeather = axios.create({
-  baseURL: "https://api.openweathermap.org/",
+  baseURL: "https://api.openweathermap.org/data/2.5",
   timeout: 5000,
 });
 

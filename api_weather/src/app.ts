@@ -8,6 +8,7 @@ import {
   validatorCompiler,
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
+import { weatherLogRoutes } from "./modules/weatherLog/weatherLog.routes.js";
 
 export const buildApp = async () => {
   const app = Fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
@@ -24,7 +25,7 @@ export const buildApp = async () => {
   app.register(prismaPlugin);
 
   // registrar rotas
-  //app.register(usersRoutes, { prefix: '/users' })
+  app.register(weatherLogRoutes, { prefix: "/api" });
 
   return app;
 };
