@@ -9,6 +9,7 @@ import {
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
 import { weatherLogRoutes } from "./modules/weatherLog/weatherLog.routes.js";
+import corsPlugin from "./plugins/cors.js";
 
 export const buildApp = async () => {
   const app = Fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
@@ -21,6 +22,7 @@ export const buildApp = async () => {
   app.register(errorHandlerPlugin);
 
   // registrar plugins
+  app.register(corsPlugin);
   app.register(swaggerPlugin);
   app.register(prismaPlugin);
 
