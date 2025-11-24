@@ -6,42 +6,28 @@ import WeatherPreview from "./components/WeatherPreview";
 import Wrapper from "./components/Wrapper";
 
 function App() {
-  // const itemsMock = [
-  //   {
-  //     id: 1,
-  //     city: "São Paulo",
-  //     temperature: 22,
-  //     description: "Céu limpo",
-  //     icon: "01d",
-  //     createdAt: "2025-11-23",
-  //   },
-  //   {
-  //     id: 2,
-  //     city: "Rio de Janeiro",
-  //     temperature: 28,
-  //     description: "Parcialmente nublado",
-  //     icon: "02d",
-  //   },
-  // ];
 
   interface PreviewWeather {
-  city: string
-  country: string
-  temperature: number
-  description: string
-  icon: string
-}
+    city: string;
+    country: string;
+    temperature: number;
+    description: string;
+    icon: string;
+  }
 
-interface WeatherLog {
-  id: number;
-  city: string;
-  country: string;
-  temperature: number;
-  description: string;
-  icon: string;
-  createdAt?: string;
-}
-  const [previewWeather, setPreviewWeather] = useState<PreviewWeather | null>(null);
+  interface WeatherLog {
+    id: number;
+    city: string;
+    country: string;
+    temperature: number;
+    description: string;
+    response: any;
+    icon: string;
+    createdAt?: string;
+  }
+  const [previewWeather, setPreviewWeather] = useState<PreviewWeather | null>(
+    null
+  );
   const [city, setCity] = useState("");
   const [items, setItems] = useState<WeatherLog[]>([]);
 
@@ -50,7 +36,16 @@ interface WeatherLog {
     try {
       const response = await fetch("http://localhost:3333/api/weather/logs");
       const data = await response.json();
-      setItems(data); // salva os itens no estado
+      const parsed = data.map((item: any) => ({
+        id: item.id,
+        city: item.city,
+        country: item.country,
+        temperature: item.response.main.temp,
+        description: item.response.weather[0].description,
+        icon: item.response.weather[0].icon,
+        createdAt: item.createdAt,
+      }));
+      setItems(parsed); // salva os itens no estado
     } catch (err) {
       console.error("Erro ao buscar logs:", err);
     }
@@ -75,9 +70,9 @@ interface WeatherLog {
       setPreviewWeather({
         city: data.city,
         country: data.country,
-        temperature: data.temperature,
-        description: data.description,
-        icon: data.icon,
+        temperature: data.main.temp,
+        description: data.weather[0].description,
+        icon: data.weather[0].icon,
       });
     } catch (err) {
       console.error("Erro ao buscar clima:", err);
@@ -89,14 +84,14 @@ interface WeatherLog {
     if (!previewWeather) return;
 
     try {
-      const response = await fetch("http://localhost:3333/weather", {
+      const response = await fetch("http://localhost:3333/api/weather", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(previewWeather),
+        body: JSON.stringify({ city }),
       });
 
       if (response.ok) {
-        await fetchLogs(); // 🔥 atualiza a lista após salvar
+        await fetchLogs(); // atualiza a lista após salvar
       }
     } catch (err) {
       console.error("Erro ao salvar no banco:", err);
