@@ -5,6 +5,7 @@ interface WeatherPreviewProps {
     temperature: number;
     description: string;
     icon: string; // ex: "01d"
+    country: string;
   } | null;
 }
 
@@ -23,8 +24,10 @@ export default function WeatherPreview({ data }: WeatherPreviewProps) {
 
       <div>
         <p className="text-zinc-50 text-xl font-semibold">{data.city}</p>
+        <p className="text-zinc-50 text-l font-semibold">País: {data.country}</p>
+        
         <p className="text-zinc-400 text-sm">
-          {data.description} — {data.temperature}°C
+          {data.description} — {Math.round(data.temperature)}°C
         </p>
       </div>
     </div>
