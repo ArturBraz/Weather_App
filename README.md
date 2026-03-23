@@ -1,4 +1,10 @@
-# 🌦️ App Weather — Backend + Frontend Monorepo
+# 🌦️ App Weather — Backend + Frontend Client Monorepo
+
+Este projeto foi desenvolvido como teste prático para uma vaga de Backend.
+
+A aplicação consiste em:
+- Uma API documentada com Swagger
+- Um cliente frontend em React para consumo da API
 
 Este repositório contém:
 - api_weather/ → API Node.js que consulta OpenWeatherMap, salva dados climáticos no PostgreSQL e expõe endpoints REST.
