@@ -41,6 +41,10 @@ Adicional:
 - Vite
 - TailwindCSS
 
+# Overview do projeto
+[![Weather App]([https://youtube.com](https://youtu.be/Qn987VVgrvM))]([https://youtube.com](https://youtu.be/Qn987VVgrvM))
+
+
 # 📦 Estrutura dos containers (Docker Compose)
 
 ## O projeto roda dois containers:
