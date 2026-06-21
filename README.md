@@ -42,6 +42,7 @@ Adicional:
 - TailwindCSS
 
 # Overview do projeto
+Link para o video:
 [Weather App Video](https://www.youtube.com/watch?v=Qn987VVgrvM)
 
 
