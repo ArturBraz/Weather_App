@@ -42,7 +42,7 @@ Adicional:
 - TailwindCSS
 
 # Overview do projeto
-[![Weather App]([https://youtube.com](https://youtu.be/Qn987VVgrvM))]([https://youtube.com](https://youtu.be/Qn987VVgrvM))
+[![Weather App](https://youtube.com)](https://www.youtube.com/watch?v=Qn987VVgrvM)
 
 
 # 📦 Estrutura dos containers (Docker Compose)
